@@ -121,4 +121,9 @@ mediaType:  application/json
 - run the command "node app.js", (provided that is what your app runs out of.) to make sure you don't have any issues with syntax. Then run "raml2html project_name.raml > project_name.html".
 - Open your new html file and you will see your documentation.
 
+# Information on Raml-parser & raml2html
+- http://raml.org/index.html
+- https://www.npmjs.com/package/raml-parser
+- https://www.npmjs.com/package/raml2html
+
 
