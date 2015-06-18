@@ -7,7 +7,7 @@
 # Creating Documentation 
 - Create a document called project_name.raml (This is the file you will be editing.) 
 - example documentation:
-'''yaml
+```yaml
 #%RAML 0.8
 title:  Todo List API
 version: 0.1
@@ -115,6 +115,6 @@ mediaType:  application/json
                    "name": "task1",
                    "date_created": "2015-06-03T23:49:18.059Z"
                  }
-'''
+```
 
 
