@@ -1,155 +1,107 @@
 #%RAML 0.8
-title: Todo API
-version: v1
-baseUri: http://localhost:3000
-protocols: [HTTP, HTTPS]
-mediaType: application/json
-	
-	/tasks:
-			get:
-				description: Get a list of all Tasks.
-				responses:
-					200:
-						body:
-							application/json:
-								example: |
-									{
-									    "tasks": [
-									        {
-									            "_id": "556f927e265f627993000012",
-									            "description": "Make dinner",
-									            "name": "task1",
-									            "date_created": "2015-06-03T23:49:18.059Z"
-									        },
-									        {
-									            "_id": "55705da20f014efb93000009",
-									            "description": "Watch your sister",
-									            "name": "task2",
-									            "date_created": "2015-06-04T14:16:02.087Z"
-									        },
-									        {
-									            "_id": "557069295ec4d36d94000006",
-									            "description": "Meeting at 9:30",
-									            "name": "task3",
-									            "date_created": "2015-06-04T15:05:13.612Z"
-									        },
-									        {
-									            "_id": "557088e7c08d7e6495000001",
-									            "description": "Go home",
-									            "name": "task4",
-									            "date_created": "2015-06-04T17:20:39.330Z"
-									        },
-									        {
-									            "_id": "55708ee2efba7e9d95000009",
-									            "description": "Go to bed",
-									            "name": "task5",
-									            "date_created": "2015-06-04T17:46:10.530Z"
-									        },
-									        {
-									            "_id": "55807c154790bb000000003a",
-									            "description": "Eat Dinner",
-									            "name": "task 6",
-									            "date_created": "2015-06-16T19:42:13.798Z"
-									        }
-									    ]
-									}
-			post:
-			    description: |
-					Add a new task.
-				queryParameters:
-					task_name:
-						description: "Unique Task name"
-						example: task1
-						required: true
-						type: string
-					task_description:
-						description: "Description of the task"
-						example: Mow the lawn.
-						required: true
-						type: string
-				body:
-					application/json:
-						schema: task
-				responses:
-					200:
-						body:
-							application/json:
-								example: |
-									{
-										"message": "Task added with name: task1"
-									}
-			
-			put:
-			    description: |
-					Update a task.
-				queryParameters:
-					task_name:
-						description: "Unique Task name"
-						example: task1
-						required: true
-						type: string
-					task_description:
-						description: "Description of the task"
-						example: Mow the lawn.
-						required: true
-						type: string
-					task_id:
-						description: "Unique Task id"
-						example: 56f927e265f627993000012
-						required: true
-						type: number
-			
-				body:
-					application/json:
-						schema: task
-				responses:
-					200:
-						body:
-							application/json:
-								example: |
-									{
-										"message": "Task updated"
-									}
-			delete:
-			    description: |
-					Remove a task.
-				queryParameters:
-					task_id:
-						description: "Unique Task id"
-						example: 56f927e265f627993000012
-						required: true
-						type: number
-			
-				body:
-					application/json:
-						schema: task
-				responses:
-					200:
-						body:
-							application/json:
-								example: |
-									{
-										"message": "Task removed"
-									}
-		/tasks/{task_id}:
-			get:
-				description: Get a list of a specific task by id.
-				queryParameters:
-					task_id:
-						description: "Unique Task id"
-						example: 56f927e265f627993000012
-						required: true
-						type: number
-				responses:
-					200:
-						body:
-							application/json:
-								example: |
-									{
-										"_id": "556f927e265f627993000012",
-										"description": "Make dinner",
-										"name": "task1",
-										"date_created": "2015-06-03T23:49:18.059Z"
-									}
-		
-	
+title:  Todo List API
+version: 0.1
+baseUri: https://localhost:3000
+mediaType:  application/json
+/tasks:
+  get:
+    description: Get a list of all Tasks.
+    responses:
+      200:
+        body:
+          application/x-www-form-urlencoded:
+            example: |
+              {
+                "tasks": [
+                  {
+                    "_id": "556f927e265f627993000012",
+                    "description": "Make dinner",
+                    "name": "task1",
+                    "date_created": "2015-06-03T23:49:18.059Z"
+                  },
+                  {
+                    "_id": "55705da20f014efb93000009",
+                    "description": "Watch your sister",
+                    "name": "task2",
+                    "date_created": "2015-06-04T14:16:02.087Z"
+                  }
+                ]
+              }
+  post:
+    description: Add a new Task.
+    queryParameters:
+      task_name:
+        description: Unique task name
+        example: task1
+        required: true
+        type: string
+      task_description:
+        description: Description of the Task.
+        example: Mow the Lawn
+        required: true
+        type: string
+    responses:
+       200:
+         body:
+           application/x-www-form-urlencoded:
+             example: |
+               {
+                 "message":"Task created with task_name: task1"
+               } 
+  put:
+    description: Update a Task.
+    queryParameters:
+      task_id:
+        description: Unique task id
+        example: 556f927e265f627993000012
+        required: true
+        type: number
+      task_name:
+        description: Unique task name
+        example: task1
+        required: true
+        type: string
+      task_description:
+        description: Description of the Task.
+        example: Mow the Lawn
+        required: true
+        type: string
+    responses:
+       200:
+         body:
+           application/x-www-form-urlencoded:
+             example: |
+               {
+                 "message":"Task updated"
+               }
+  delete:
+    description: remove a Task.
+    queryParameters:
+      task_id:
+        description: Unique task id
+        example: 556f927e265f627993000012
+        required: true
+        type: number
+    responses:
+       200:
+         body:
+           application/x-www-form-urlencoded:
+             example: |
+               {
+                 "message":"Task removed"
+               }
+  
+  /{task_id}:
+    get:
+      description: Get a Task by task_id.
+      responses:
+         200:
+           body:
+             application/x-www-form-urlencoded:
+               example: |
+                 {
+                   "_id": "556f927e265f627993000012",
+                   "description": "Make dinner",
+                   "name": "task1",
+                   "date_created": "2015-06-03T23:49:18.059Z"
+                 }
