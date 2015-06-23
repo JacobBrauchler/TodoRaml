@@ -111,7 +111,7 @@ mediaType:  application/json
     queryParameters:
       task_name:
         description: Unique task name
-        example: task1
+        example: name=task1
         required: true
         type: string
     responses:
