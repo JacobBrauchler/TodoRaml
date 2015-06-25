@@ -30,12 +30,12 @@ mediaType:  application/json
   post:
     description: Add a new Task.
     queryParameters:
-      task_name:
+      name:
         description: Unique task name
         example: task1
         required: true
         type: string
-      task_description:
+      description:
         description: Description of the Task.
         example: Mow the Lawn
         required: true
@@ -51,17 +51,17 @@ mediaType:  application/json
   put:
     description: Update a Task.
     queryParameters:
-      task_id:
+      id:
         description: Unique task id
         example: 556f927e265f627993000012
         required: true
         type: number
-      task_name:
+      name:
         description: Unique task name
         example: task1
         required: true
         type: string
-      task_description:
+      description:
         description: Description of the Task.
         example: Mow the Lawn
         required: true
@@ -77,7 +77,7 @@ mediaType:  application/json
   delete:
     description: remove a Task.
     queryParameters:
-      task_id:
+      id:
         description: Unique task id
         example: 556f927e265f627993000012
         required: true
@@ -91,7 +91,7 @@ mediaType:  application/json
                  "message":"Task removed"
                }
   
-  /{task_id}:
+  /{id}:
     get:
       description: Get a Task by task_id.
       responses:
@@ -109,7 +109,7 @@ mediaType:  application/json
   get:
     description: Add a new Task.
     queryParameters:
-      task_name:
+      name:
         description: Unique task name
         example: name=task1
         required: true

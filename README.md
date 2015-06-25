@@ -121,6 +121,11 @@ mediaType:  application/json
 - run the command "node app.js", (provided that is what your app runs out of.) to make sure you don't have any issues with syntax. Then run "raml2html project_name.raml > project_name.html".
 - Open your new html file and you will see your documentation.
 
+# Generating Documentation and Enabling sample requests
+- Download api-console from https://github.com/mulesoft/api-console
+- Open the dist folder in the api-console brance and then open the index.html file. From there load in your raml/yaml file and it shows your document in an even nicer format than the regular raml2html creator. 
+- I do not have this working perfectly yet but am still in the process.
+
 # Information on Raml-parser & raml2html
 - http://raml.org/index.html
 - https://www.npmjs.com/package/raml-parser
